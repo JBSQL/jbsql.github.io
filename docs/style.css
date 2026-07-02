@@ -42,28 +42,29 @@ p {
 /* 1. shimmer text */
 .ai-shimmer-text {
   font-weight: bold;
-  background: linear-gradient(to right, #2b5876 20%, #4e4376 40%, #2b5876 60%, #4e4376 80%) !important;
+  
+  /* 1. Shrink the bounding box to tightly wrap the text */
+  display: inline-block;
+  width: fit-content;
+  
+  /* 2. Paint the gradient */
+  background: linear-gradient(to right, #2b5876 20%, #4e4376 40%, #2b5876 60%, #4e4376 80%);
   background-size: 200% auto;
+  
+  /* 3. Apply the stencil and hide the original black text */
   color: transparent !important;
-  -webkit-background-clip: text;
-  background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  
+  /* 4. Animate it */
   animation: shine 3s linear infinite;
-  display: inline-block; /* Added this just in case */
 }
 
-/* 2. Elevated Feature Cards (Hover effects for grid items) */
-.feature-card {
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.feature-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
 
 /* 3. Floating Animation (For the main logo or icons) */
