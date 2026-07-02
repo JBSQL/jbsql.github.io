@@ -1,0 +1,39 @@
+/* style.css */
+:root {
+    --primary-color: #6750A4;
+    --background: #FEF7FF;
+    --text-color: #1D1B20;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustment for desktop */
+@media (min-width: 600px) {
+    body { padding-top: 100px; }
+}
